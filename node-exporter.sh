@@ -17,7 +17,7 @@ After=network-online.target
 
 User=root
 Type=simple
-ExecStart=/node-exporter/node_exporter-1.3.1.linux-amd64/node_exporter --web.listen-address=:[$EXPORTER_PORT]
+ExecStart=/node-exporter/node_exporter-1.3.1.linux-amd64/node_exporter --web.listen-address=:"$EXPORTER_PORT"
 
 [Install]
 
@@ -26,4 +26,5 @@ EOF
 
 systemctl daemon-reload
 systemctl start node_exporter
-systemctl status node_exporter 
+systemctl status node_exporter
+systemctl enable node_exporter
